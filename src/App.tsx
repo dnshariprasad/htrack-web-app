@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import AddNote from "./component/AddNote";
+import NoteList from "./component/NoteList";
+import NoteDetail from "./component/NoteDetail";
+import styled from "styled-components";
 
-function App() {
-  const [count, setCount] = useState(0)
+const Navbar = styled.nav`
+  padding: 15px 80px; /* Adjust padding as needed */
+  background-color: #f8f9fa; /* Optional: Background color */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+`;
 
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <Navbar className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <Link to="/" className="navbar-brand">
+            HtracK
+          </Link>
+          <div>
+            <Link to="/add" className="nav-link d-inline-block">
+              Add Note
+            </Link>
+          </div>
+        </div>
+      </Navbar>
+      <Routes>
+        <Route path="/" element={<NoteList />} />
+        <Route path="/add" element={<AddNote />} />
+        <Route path="/note/:id" element={<NoteDetail />} />
+        <Route path="/edit/:id" element={<AddNote />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
