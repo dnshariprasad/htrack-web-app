@@ -70,6 +70,7 @@ Please change the parent <Route path="${z}"> to <Route path="${z==="/"?"*":`${z}
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   max-height: 100%;
+  max-width: 100%;
 `,Rw=Ge.div`
   padding: 20px;
   border-radius: 8px;
