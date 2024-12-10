@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { format } from "date-fns";
 
 export const CardDetail = styled.div`
   padding: 20px;
