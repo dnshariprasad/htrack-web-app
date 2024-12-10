@@ -9,6 +9,7 @@ export const CardDetail = styled.div`
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   max-height: 100%;
+  max-width: 100%;
 `;
 
 export const Card = styled.div`
