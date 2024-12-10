@@ -7,7 +7,7 @@ import NoteDetail from "./component/NoteDetail";
 import styled from "styled-components";
 
 const Navbar = styled.nav`
-  padding: 15px 80px; /* Adjust padding as needed */
+  padding: 15px 20px; /* Adjust padding as needed */
   background-color: #f8f9fa; /* Optional: Background color */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
 `;
