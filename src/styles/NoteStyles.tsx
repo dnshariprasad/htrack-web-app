@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const CardDetail = styled.div`
   padding: 20px;
   margin-bottom: 50px;
-  margin-top: 50px;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-top: 30px;
+  margin-left: 35px;
+  margin-right: 35px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   max-height: 100%;
@@ -33,6 +33,9 @@ export const GridContainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 15px;
   padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
 `;
 
 export const NoteTitle = styled.h5`

@@ -20,7 +20,7 @@ const NoteList: React.FC = () => {
   const notes = useSelector((state: RootState) => state.notes.notes);
 
   return (
-    <div className="container mt-4">
+    <div>
       <GridContainer>
         {notes.map((note) => (
           <Link
