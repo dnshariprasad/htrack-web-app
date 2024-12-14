@@ -4,8 +4,8 @@ export const CardDetail = styled.div`
   padding: 20px;
   margin-bottom: 50px;
   margin-top: 50px;
-  margin-left: 150px;
-  margin-right: 150px;
+  margin-left: 15px;
+  margin-right: 15px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   max-height: 100%;
