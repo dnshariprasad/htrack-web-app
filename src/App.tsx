@@ -1,10 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import AddNote from "./component/AddNote";
-import NoteList from "./component/NoteList";
-import NoteDetail from "./component/NoteDetail";
+import AddNote from "./pages/AddNote";
+import NoteList from "./pages/NoteList";
+import NoteDetail from "./pages/NoteDetail";
 import styled from "styled-components";
+import {
+  PAGE_HOME,
+  PAGE_NOTE_ADD,
+  PAGE_NOTE_DETAIL,
+  PAGE_NOTE_EDIT,
+} from "./constants";
 
 const Navbar = styled.nav`
   padding: 15px 20px; /* Adjust padding as needed */
@@ -28,10 +34,10 @@ const App: React.FC = () => {
         </div>
       </Navbar>
       <Routes>
-        <Route path="/" element={<NoteList />} />
-        <Route path="/add" element={<AddNote />} />
-        <Route path="/note/:id" element={<NoteDetail />} />
-        <Route path="/edit/:id" element={<AddNote />} />
+        <Route path={PAGE_HOME} element={<NoteList />} />
+        <Route path={PAGE_NOTE_ADD} element={<AddNote />} />
+        <Route path={PAGE_NOTE_DETAIL} element={<NoteDetail />} />
+        <Route path={PAGE_NOTE_EDIT} element={<AddNote />} />
       </Routes>
     </Router>
   );
