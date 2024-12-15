@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import { RootState } from "../redux/store";
+import { calculateTimeDifferenceFormat } from "../TimeUtil";
 import {
   Card,
   GridContainer,
@@ -14,6 +15,7 @@ import {
   Header,
   DateTime,
   CategoryTag,
+  DateContainer,
 } from "../styles/NoteStyles"; // Import styled components
 
 const NoteList: React.FC = () => {
@@ -45,6 +47,19 @@ const NoteList: React.FC = () => {
                 >
                   {note.link}
                 </LinkText>
+              )}
+              {note.startDate && note.endDate && (
+                <DateContainer>
+                  <label>
+                    {note.startDate} - {note.endDate}
+                  </label>
+                  <label>
+                    {calculateTimeDifferenceFormat(
+                      note.startDate,
+                      note.endDate
+                    )}
+                  </label>
+                </DateContainer>
               )}
               {note.tags.length > 0 && (
                 <TagList>

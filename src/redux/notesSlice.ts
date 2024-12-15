@@ -6,6 +6,8 @@ interface Note {
   link: string;
   content: string;
   category: string;
+  startDate: string;
+  endDate: string;
   tags: string[];
   createdAt: number;
 }

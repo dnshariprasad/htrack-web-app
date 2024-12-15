@@ -5,6 +5,7 @@ import { addNote, updateNote } from "../redux/notesSlice";
 import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
 import { RootState } from "../redux/store";
+import { categories } from "../constants";
 
 const FormWrapper = styled.div`
   max-width: 500px;
@@ -23,7 +24,16 @@ const AddNote: React.FC = () => {
   const [link, setLink] = useState(noteToEdit?.link || "");
   const [category, setCategory] = useState(noteToEdit?.category || "");
   const [tags, setTags] = useState(noteToEdit?.tags.join(", ") || "");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
+  const handleStartDateChange = (event: any) => {
+    setStartDate(event.target.value);
+  };
+
+  const handleEndDateChange = (event: any) => {
+    setEndDate(event.target.value);
+  };
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent) => {
@@ -33,11 +43,13 @@ const AddNote: React.FC = () => {
       if (id) {
         dispatch(
           updateNote({
-            id,
-            title,
-            content,
-            link,
-            category,
+            id: id,
+            title: title,
+            content: content,
+            link: link,
+            category: category,
+            startDate: startDate,
+            endDate: endDate,
             tags: tagList,
             createdAt: noteToEdit?.createdAt || Date.now(),
           })
@@ -50,6 +62,8 @@ const AddNote: React.FC = () => {
             link: link,
             content: content,
             category: category,
+            startDate: startDate,
+            endDate: endDate,
             tags: tagList,
             createdAt: Date.now(),
           })
@@ -105,8 +119,36 @@ const AddNote: React.FC = () => {
             onChange={(e) => setTags(e.target.value)}
           />
         </div>
+        {category === "Date" && (
+          <>
+            <div className="mb-3">
+              <label htmlFor="start_date" className="form-label">
+                Start Date
+              </label>
+              <input
+                className="form-control"
+                type="date"
+                id="date-picker"
+                value={startDate}
+                onChange={handleStartDateChange}
+              />
+            </div>
 
-        {category === "Link" && (
+            <div className="mb-3">
+              <label htmlFor="end_date" className="form-label">
+                Start Date
+              </label>
+              <input
+                className="form-control"
+                type="date"
+                id="date-picker"
+                value={endDate}
+                onChange={handleEndDateChange}
+              />
+            </div>
+          </>
+        )}
+        {(category === "Link" || category === "Location") && (
           <div className="mb-3">
             <label htmlFor="link" className="form-label">
               Link

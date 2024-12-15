@@ -141,7 +141,16 @@ export const StyledButton = styled.button<{ variant?: string }>`
   }
 
   &:disabled {
-    background-color: #d6d6d6;
+    background-color: #fbf9f9;
     cursor: not-allowed;
   }
+`;
+
+export const DateContainer = styled.div`
+  border-radius: 8px;
+  background-color: #c8cacb; /* Light ash color */
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* 10px gap between children */
+  padding: 7px; /* Optional padding inside the container */
 `;

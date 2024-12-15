@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { format } from "date-fns";
 import { RootState } from "../redux/store";
 import { deleteNote } from "../redux/notesSlice";
+import { calculateTimeDifferenceFormat } from "../TimeUtil";
 import {
   NoteTitle,
   LinkText,
@@ -16,6 +17,7 @@ import {
   CategoryTag,
   StyledButton,
   CardDetail,
+  DateContainer,
 } from "../styles/NoteStyles"; // Import styled components
 
 const NoteDetail: React.FC = () => {
@@ -53,6 +55,16 @@ const NoteDetail: React.FC = () => {
           {note.link}
         </LinkText>
       )}
+      {note.startDate && note.endDate && (
+        <DateContainer>
+          <label>
+            {note.startDate} - {note.endDate}
+          </label>
+          <label>
+            {calculateTimeDifferenceFormat(note.startDate, note.endDate)}
+          </label>
+        </DateContainer>
+      )}
       {note.tags.length > 0 && (
         <TagList>
           {note.tags.map((tag, index) => (
@@ -60,6 +72,7 @@ const NoteDetail: React.FC = () => {
           ))}
         </TagList>
       )}
+
       <ButtonContainer>
         <StyledButton variant="primary" disabled={false} onClick={handleEdit}>
           Edit
