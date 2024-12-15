@@ -77,18 +77,6 @@ const AddNote: React.FC = () => {
     <FormWrapper>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="title" className="form-label">
-            Title
-          </label>
-          <input
-            type="text"
-            id="title"
-            className="form-control"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
-        <div className="mb-3">
           <label htmlFor="category" className="form-label">
             Type
           </label>
@@ -162,6 +150,18 @@ const AddNote: React.FC = () => {
             />
           </div>
         )}
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">
+            Title
+          </label>
+          <input
+            type="text"
+            id="title"
+            className="form-control"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
         <div className="mb-3">
           <label htmlFor="content" className="form-label">
             Content
