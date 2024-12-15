@@ -87,7 +87,7 @@ const AddNote: React.FC = () => {
             onChange={(e) => setCategory(e.target.value)}
           >
             <option value="" disabled>
-              Select a category
+              Select Typle
             </option>
             <option value="Link">Link</option>
             <option value="Date">Date</option>
