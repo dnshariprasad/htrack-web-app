@@ -5,7 +5,6 @@ import { addNote, updateNote } from "../redux/notesSlice";
 import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
 import { RootState } from "../redux/store";
-import { categories } from "../constants";
 
 const FormWrapper = styled.div`
   max-width: 500px;
@@ -95,18 +94,6 @@ const AddNote: React.FC = () => {
             <option value="Text">Text</option>
           </select>
         </div>
-        <div className="mb-3">
-          <label htmlFor="tags" className="form-label">
-            Tags (comma separated)
-          </label>
-          <input
-            type="text"
-            id="tags"
-            className="form-control"
-            value={tags}
-            onChange={(e) => setTags(e.target.value)}
-          />
-        </div>
         {category === "Date" && (
           <>
             <div className="mb-3">
@@ -172,6 +159,18 @@ const AddNote: React.FC = () => {
             rows={3}
             value={content}
             onChange={(e) => setContent(e.target.value)}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="tags" className="form-label">
+            Tags (comma separated)
+          </label>
+          <input
+            type="text"
+            id="tags"
+            className="form-control"
+            value={tags}
+            onChange={(e) => setTags(e.target.value)}
           />
         </div>
         <button type="submit" className="btn btn-primary">
